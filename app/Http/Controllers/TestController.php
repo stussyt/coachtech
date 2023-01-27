@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClientRequest;
 
 class TestController extends Controller
 {
-    public function index()
-    {
-        return "test";
-    }
+  public function index(Request $request)
+  {
+    return view('index', ['txt' => 'フォームを入力']);
+  }
+
+  public function post(ClientRequest $request)
+  {
+    return view('index', ['txt' => '正しい入力です']);
+  }
+
+  public function verror()
+  {
+    return view('verror');
+  }
 }
